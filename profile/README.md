@@ -2,6 +2,10 @@
 
 A personal knowledge management tool built around a DAG (directed acyclic graph). It is classified as an **Agent with tools** — the simplest and most common production shape.
 
+## Demo recording
+
+[demo_kb_agent.mp4](https://ai-maxxing.cc:8443/_work/demo_kb_agent.mp4)
+
 ## What the project does
 
 The user builds up a knowledge graph incrementally:
