@@ -4,7 +4,7 @@ A personal knowledge management tool built around a DAG (directed acyclic graph)
 
 ## Demo recording
 
-[demo_kb_agent.mp4](https://ai-maxxing.cc:8443/_work/demo_kb_agent.mp4)
+[demo_kb_agent.mp4](https://catamaniacrm.sharepoint.com/:v:/r/sites/CAT-SECURITE/Documents/50%20-%20Sensibilisation%20et%20formation/AI/demo_kb_agent.mp4?csf=1&web=1&e=KFejo7)
 
 ## What the project does
 
