@@ -2,6 +2,22 @@
 
 A personal knowledge management tool built around a DAG (directed acyclic graph). It is classified as an **Agent with tools** — the simplest and most common production shape.
 
+## Intro (2026 July)
+
+`augmented-kb` is a personal knowledge-management / AI-agent stack, split across four repos plus this org-profile repo.
+
+- **`kb-agent`** — the core product. A personal knowledge base built on a DAG (`data/nodes.json` + `data/edges.json`). Workflow: `/extract-subgraph` (Claude reads a chunk of source text and extracts nodes/edges into a snapshot `data/subgraph_*.json`) → `/merge-subgraph` (Claude synonym-matches the snapshot against the main graph, dedupes, and merges it in, asking the human where to attach it) → a small Express webapp (`server.js`) for manual browsing/CRUD. Recent commits are actively populating the graph from ISO 27005 and other frameworks.
+
+- **`dataset-1-cissp`** — raw material repo. Structured CISSP study notes. One of the input sources kb-agent's `/extract-subgraph` ingests.
+
+- **`prompt-eval-pipeline`** — a generic declarative YAML framework for evaluating/comparing LLM prompts (metrics: contains, exact_match, regex, llm_judge, composite; exports JSON/CSV/MD/HTML). Not originally built for augmented-kb — it currently only has a "narrative-function-extractor" prompt (fr/en), left over from a different use case. Candidate tool to adapt for evaluating kb-agent's `/extract-subgraph` and `/merge-subgraph` prompts.
+
+- **`youtube-transcript-api`** — a fork of `jdepoix/youtube-transcript-api`. Earmarked as a future raw-material source: pull video transcripts and feed them into kb-agent's extraction pipeline, the same role `dataset-1-cissp` plays today.
+
+- **`.github`** (this repo) — org profile, also doubling as the conceptual write-up (below) on how these pieces compose as agents/workflows.
+
+Overall shape: raw material (`dataset-1-cissp`, later `youtube-transcript-api`) → extraction/merge agent (`kb-agent`) building the knowledge graph → prompt evaluation (`prompt-eval-pipeline`, once adapted) to systematically test/tune the extraction and merge prompts.
+
 ## Demo recording
 
 [demo_kb_agent.mp4](https://catamaniacrm.sharepoint.com/:v:/r/sites/CAT-SECURITE/Documents/50%20-%20Sensibilisation%20et%20formation/AI/demo_kb_agent.mp4?csf=1&web=1&e=KFejo7)
